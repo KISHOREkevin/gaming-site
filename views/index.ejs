@@ -1,0 +1,118 @@
+<%-include("partials/header") -%>
+
+
+
+	<section class="selectionArea">
+		<form action="/" method="post">
+			<div class="row">
+				<div class="col-lg-4">
+					<select class="custom-select" name="platform">
+						<option selected value="all">Choose a platform...</option>
+						<option value="pc">PC games</option>
+						<option value="browser">Browser</option>
+						<option value="all">All</option>
+					</select>
+				</div>
+			
+				<div class="col-lg-4">
+					<select name="category" class="custom-select">
+						<option selected value="mmorpg">Choose an category...</option>
+						<option value="mmorpg">MMORPG games</option>
+						<option value="shooter">Shooter games</option>
+						<option value="strategy">Strategy games</option>
+						<option value="moba">MOBA games</option>
+						<option value="racing">Racing games</option>
+						<option value="sports">Sports games</option>
+						<option value="social">Social games</option>
+						<option value="sandbox">Sandbox games</option>
+						<option value="open-world">Open World games</option>
+						<option value="survival">Survival games</option>
+						<option value="pvp">PVP games</option>
+						<option value="pve">PVE games</option>
+						<option value="pixel">Pixelated games</option>
+						<option value="zombie">Zombie games</option>
+						<option value="turn-based">Turn-Based games</option>
+						<option value="first-person">First Person games</option>
+						<option value="third-person">Third Person games</option>
+						<option value="top-down">Top-Down games</option>
+						<option value="tank">Tank games</option>
+						<option value="space">Space games</option>
+						<option value="sailing">Sailing games</option>
+						<option value="side-scroller">Side-Scroller games</option>
+						<option value="superhero">Superhero games</option>
+						<option value="permadeath">PermaDeath games</option>
+						<option value="card">Card games</option>
+						<option value="battle-royale">Battle-Royale games</option>
+						<option value="mmo">MMO games</option>
+						<option value="mmofps">MMOFPS games</option>
+						<option value="mmotps">MMOTPS games</option>
+						<option value="3d">3D games</option>
+						<option value="2d">2D games</option>
+						<option value="anime">Anime games</option>
+						<option value="fantasy">Fantasy games</option>
+						<option value="sci-fi">SciFi games</option>
+						<option value="fighting">Fighting games</option>
+						<option value="action-rpg">Action-RPG games</option>
+						<option value="action">Action games</option>
+						<option value="military">Military games</option>
+						<option value="martial-arts">Martial-Arts games</option>
+						<option value="flight">Flight games</option>
+						<option value="low-spec">LowSpec games</option>
+						<option value="tower-defense">Tower-Defense games</option>
+						<option value="horror">Horror games</option>
+						<option value="mmorts">MMORTS games</option>
+					</select>
+				</div>
+
+
+			<div class="col-lg-4">
+				<select name="sortBy" class="custom-select">
+					<option selected value="popularity">Choose an Order...</option>
+					<option value="release-date">Release Date wise</option>
+					<option value="popularity" >Popularity wise</option>
+					<option value="alphabetical">Alphabetical wise</option>
+					<option value="relevance">Relevance wise</option>
+				</select>
+			</div>	
+
+			</div>
+			<button type="submit" class="btn btn-block btn-danger">Search <i class="fa-brands fa-searchengin"></i></button>
+		</form>
+		
+	</section>
+	<section class="collectionArea">
+	<div class="row">
+	<%if(gameTitle.length===0){%> 
+	<div class="container text-center">
+		<div class="card">
+  			<div class="card-body">
+    			<h1>Hi guys ! welcome to my games</h1>
+  			</div>
+		</div>
+	</div>
+
+	<% }else{%>		
+		<% for (var i = 0;i<gameTitle.length; i++) { %>
+			<div class="card col-lg-4 col-md-6 col-sm-12">
+  				<img class="card-img-top img-fluid" src="<%=gamePics[i]%>" alt="<%=gameTitle%>">
+  				<div class="card-body">
+    				<h5 class="card-title"><%=gameTitle[i]%></h5>
+    				<h6 class="card-subtitle mb-2 text-muted"><%=gamePubs[i]%></h6>
+    				<p class="card-text"><%=gameDescs[i]%></p>
+   					<a href="<%=gameLinks[i]%>" class="btn btn-danger" target="_blank">Play Now <i class="fa-solid fa-circle-play"></i></a>
+  				</div>
+			</div>
+		<% } %>
+	<% } %>
+	
+	
+	
+	</div>	
+
+	</section>
+	
+	
+</div>
+
+
+<%-include("partials/footer")-%>
